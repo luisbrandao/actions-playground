@@ -4,6 +4,7 @@ on:
     branches: [ main ]
     paths:
       - kube/file.yml
+  jobs:
   # ============================================================================
   infra_developement:
     name: infra developement
