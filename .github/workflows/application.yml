@@ -23,7 +23,7 @@ jobs:
   deploy_developement:
     name: deploy_developement
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [build, infra_developement]
     environment:
       name: dev
     steps:
