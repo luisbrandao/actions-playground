@@ -10,7 +10,7 @@ on:
 
 jobs:
   tests:
-    uses: ./.github/workflows/tests.yml
+    uses: ./.github/workflows/infra.yml
   # ==========================================================================
   build:
     name: Build
