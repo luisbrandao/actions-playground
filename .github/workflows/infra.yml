@@ -2,8 +2,8 @@ name: Infraestruture Pipeline
 on:
   push:
     branches: [ main ]
-  paths:
-    - kube/file.yml
+    paths:
+      - kube/file.yml
   # ============================================================================
   infra_developement:
     name: infra developement
