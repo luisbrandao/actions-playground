@@ -1,0 +1,45 @@
+name: Docker Image CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: infra_developement
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+
+      - name: Pretend to work
+        run: sleep 5  ; echo "success"
+    # ==========================================================================
+    name: infra_homologation
+    runs-on: ubuntu-latest
+    needs: [infra_developement]
+    environment:
+      name: hml
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+
+      - name: Pretend to work
+        run: sleep 5  ; echo "success"
+
+    # ==========================================================================
+    name: infra_production
+    runs-on: ubuntu-latest
+    needs: [infra_homologation]
+    environment:
+      name: prd
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+
+      - name: Pretend to work
+        run: sleep 5  ; echo "success"
