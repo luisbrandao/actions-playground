@@ -37,7 +37,7 @@ jobs:
   deploy_homologation:
     name: deploy_homologation
     runs-on: ubuntu-latest
-    needs: [deploy_developement]
+    needs: [deploy_developement,infra_developement]
     environment:
       name: hml
     steps:
@@ -51,7 +51,47 @@ jobs:
   deploy_production:
     name: deploy_production
     runs-on: ubuntu-latest
-    needs: [deploy_homologation]
+    needs: [deploy_homologation,infra_homologation]
+    environment:
+      name: prd
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+
+      - name: Pretend to work
+        run: sleep 5  ; echo "success"
+
+  # ============================================================================
+  infra_developement:
+    name: infra developement
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+
+      - name: Pretend to work
+        run: sleep 5  ; echo "success"
+  # ============================================================================
+  infra_homologation:
+    name: infra homologation
+    runs-on: ubuntu-latest
+    needs: [infra_developement]
+    environment:
+      name: hml
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+
+      - name: Pretend to work
+        run: sleep 5  ; echo "success"
+
+  # ============================================================================
+  infra_production:
+    name: infra production
+    runs-on: ubuntu-latest
+    needs: [infra_homologation]
     environment:
       name: prd
     steps:
