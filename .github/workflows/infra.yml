@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  # ============================================--==============================
+  # ============================================================================
   infra_developement:
     name: infra developement
     runs-on: ubuntu-latest
@@ -19,7 +19,7 @@ jobs:
 
       - name: Pretend to work
         run: sleep 5  ; echo "success"
-  # ==================================================--========================
+  # ============================================================================
   infra_homologation:
     name: infra homologation
     runs-on: ubuntu-latest
