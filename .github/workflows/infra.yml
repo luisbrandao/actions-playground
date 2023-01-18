@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - kube/file.yml
+      - kube/infra.yml
 jobs:
   # ============================================================================
   infra_developement:

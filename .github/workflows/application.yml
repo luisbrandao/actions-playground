@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - "**/*.md"
+      - kube/infra.yml
 
 jobs:
   # ==========================================================================
@@ -21,7 +21,7 @@ jobs:
 
   # ============================================================================
   deploy_developement:
-    name: deploy_developement
+    name: deploy developement
     runs-on: ubuntu-latest
     needs: [build]
     environment:
@@ -35,7 +35,7 @@ jobs:
 
   # ============================================================================
   deploy_production:
-    name: deploy_production
+    name: deploy production
     runs-on: ubuntu-latest
     needs: [deploy_developement]
     environment:
