@@ -16,25 +16,12 @@ on:
 
       - name: Pretend to work
         run: sleep 5  ; echo "success"
-  # ============================================================================
-  infra_homologation:
-    name: infra homologation
-    runs-on: ubuntu-latest
-    needs: [infra_developement]
-    environment:
-      name: hml
-    steps:
-      - name: Clone
-        uses: actions/checkout@v3
-
-      - name: Pretend to work
-        run: sleep 5  ; echo "success"
 
   # ============================================================================
   infra_production:
     name: infra production
     runs-on: ubuntu-latest
-    needs: [infra_homologation]
+    needs: [infra_developement]
     environment:
       name: prd
     steps:
