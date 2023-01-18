@@ -1,5 +1,12 @@
 name: Infraestruture Pipeline
-on: [workflow_call]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches:
+      - main
+  workflow_call:
+
 jobs:
   # ============================================================================
   infra_developement:

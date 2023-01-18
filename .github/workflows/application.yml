@@ -9,8 +9,6 @@ on:
       - "**/*.md"
 
 jobs:
-  tests:
-    uses: ./.github/workflows/infra.yml
   # ==========================================================================
   build:
     name: Build
@@ -25,7 +23,7 @@ jobs:
   deploy_developement:
     name: deploy_developement
     runs-on: ubuntu-latest
-    needs: [build, infra_developement]
+    needs: [build]
     environment:
       name: dev
     steps:
